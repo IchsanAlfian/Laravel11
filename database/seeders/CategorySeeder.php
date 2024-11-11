@@ -15,17 +15,20 @@ class CategorySeeder extends Seeder
     {
         Category::create([
             'name' => 'Kesehatan Ginjal',
-            'slug' => 'kesehatan-ginjal'
+            'slug' => 'kesehatan-ginjal',
+            'color' => 'red',
         ]);
 
         Category::create([
             'name' => 'Kesehatan Kulit',
-            'slug' => 'kesehatan-kulit'
+            'slug' => 'kesehatan-kulit',
+            'color' => 'blue',
         ]);
 
         Category::create([
             'name' => 'Kesehatan Paru',
-            'slug' => 'kesehatan-paru'
+            'slug' => 'kesehatan-paru',
+            'color' => 'yellow',
         ]);
     }
 }

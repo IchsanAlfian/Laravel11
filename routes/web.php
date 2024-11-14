@@ -24,7 +24,7 @@ Route::get('/blog', function () {
     // if(request('search')){
     //     $posts->where('title','like','%'. request('search').'%');
     // }
-    return view('blog', ['title'=> 'Blog', 'posts'=> Post::filter(request(['search', 'category', 'author']))->latest()->get()]);
+    return view('blog', ['title'=> 'Blog', 'posts'=> Post::filter(request(['search', 'category', 'author']))->latest()->paginate(6)->withQueryString()]);
 });
 Route::get('/blog/{post:slug}', function(Post $post){
     // $post = Post::find($id);

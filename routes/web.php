@@ -18,8 +18,13 @@ Route::get('/about', function () {
 
 Route::get('/blog', function () {
     // $posts = Post:: with(['author','category'])->latest()->get();
-    $posts= Post::latest()->get();
-    return view('blog', ['title'=> 'Blog', 'posts'=> $posts]);
+    // dd(request('search'));
+    // $posts= Post::latest();
+   
+    // if(request('search')){
+    //     $posts->where('title','like','%'. request('search').'%');
+    // }
+    return view('blog', ['title'=> 'Blog', 'posts'=> Post::filter(request(['search', 'category', 'author']))->latest()->get()]);
 });
 Route::get('/blog/{post:slug}', function(Post $post){
     // $post = Post::find($id);
